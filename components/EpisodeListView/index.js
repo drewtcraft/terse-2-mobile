@@ -4,6 +4,13 @@ import EpisodeListItem from './EpisodeListItem';
 import styles from './index.style';
 
 export default function EpisodeListView (props) {
+	const renderItem = _props => {
+		return <EpisodeListItem
+			{ ...props }
+			clickHandler={ props.handleEpisodeClick }
+		/>
+	};
+
 	return <SafeAreaView style={ styles.container }>
 		<View>
 			<Text>
@@ -15,5 +22,5 @@ export default function EpisodeListView (props) {
 			renderItem={ EpisodeListItem }
 			keyExtractor={ i => i.title }
 		/>
-	</SafeAreaView>
+	</SafeAreaView>;
 }
